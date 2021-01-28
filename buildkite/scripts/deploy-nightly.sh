@@ -14,6 +14,9 @@ echo "Nightly ENV: $NIGHTLY"
 echo "DAEMON_TAG: $DAEMON_TAG"
 echo "ARCHIVE_TAG: $ARCHIVE_TAG"
 
+kubectl get namespaces
+kubectl config current-context
+
 if [ ! -z $NIGHTLY ]; then
   echo "Deploying Nightly"
 
