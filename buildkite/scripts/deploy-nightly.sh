@@ -22,8 +22,16 @@ if [ ! -z $NIGHTLY ]; then
   export GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp_creds.json
 
   cd automation/terraform/testnets/nightly
+  echo "Initing Terraform"
   terraform init
+  echo "Dont Initing Terraform"
+
+  echo "Destroying previous network"
   terraform destroy -auto-approve
+  sleep 1m
+  echo "Done Destorying Network"
+
+  echo "Applying"
   terraform apply -var="coda_image=${DAEMON_TAG}" -var="coda_archive_image=${ARCHIVE_TAG}" -auto-approve
 
 else
