@@ -30,7 +30,7 @@ if [ ! -z $NIGHTLY ]; then
   echo "Dont Initing Terraform"
 
   echo "Destroying previous network"
-  # terraform destroy -auto-approve
+  terraform destroy -auto-approve
   sleep 1m
   echo "Done Destorying Network"
 
